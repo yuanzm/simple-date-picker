@@ -1,0 +1,1 @@
+window.DatePicker = require('./index.js').DatePicker;
