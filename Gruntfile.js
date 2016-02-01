@@ -31,7 +31,7 @@
             },
             watch: {
                 weixin: {
-                  files: ["lib/*.js"],
+                  files: ["lib/*.js", "lib/*.less"],
                   tasks: ["browserify", "less"]
                 }
             },

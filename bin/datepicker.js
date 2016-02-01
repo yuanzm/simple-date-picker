@@ -8,7 +8,13 @@ module.exports = require('./lib/datepicker');
  * @last-edit-date: 2015-01-23
  */
 
-DatePicker = {};
+var _defaultConfig = {
+
+};
+
+function DatePicker() {
+	
+}
 
 module.exports = {
 	DatePicker: DatePicker
