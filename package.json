@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/yuanzm/simple-date-picker#readme",
   "dependencies": {
+    "bower": "^1.7.7",
     "browserify": "^13.0.0",
     "coffeeify": "^2.0.1",
     "grunt": "^0.4.5",
