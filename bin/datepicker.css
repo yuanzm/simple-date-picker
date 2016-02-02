@@ -111,10 +111,14 @@
   color: #4eccc4;
   display: inline-block;
 }
+.datapicker__panel {
+  overflow: hidden;
+}
 .datapicker__day-list {
   width: 100%;
   list-style-type: none;
   overflow: hidden;
+  float: left;
 }
 .datapicker__day-item {
   width: 14.2857%;
