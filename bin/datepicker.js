@@ -197,7 +197,7 @@ DateParse.prototype = {
 module.exports = DateParse;
 
 },{}],4:[function(require,module,exports){
-module.exports = "<div class=\"datepicker\">\r\n\t<div class=\"datapicker__mask\"></div>\r\n\t<div class=\"datapicker__main\">\r\n\t\t<div class=\"datapicker__header\">\r\n\t\t\t<div class=\"datapicker__time-toggle\"></div>\r\n\t\t\t<div class=\"datapicker__time-selector-list\">\r\n\t\t\t\t<div class=\"datapicker__time-selector-item\">\r\n\t\t\t\t\t<a href=\"javascript:;\" class=\"datapicker__time-selector-arrow datapicker__time-selector-prev\" id=\"_j_year_prev\">&lt;</a>\r\n\t\t\t\t\t<a href=\"javascript:;\" class=\"datapicker__time-selector-text\" id=\"_j_year_text\">{year}年</a>\r\n\t\t\t\t\t<a href=\"javascript:;\" class=\"datapicker__time-selector-arrow datapicker__time-selector-next\" id=\"_j_year_next\">&gt;</a>\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"datapicker__time-selector-item\">\r\n\t\t\t\t\t<a href=\"javascript:;\" class=\"datapicker__time-selector-arrow datapicker__time-selector-prev\" id=\"_j_month_prev\">&lt;</a>\r\n\t\t\t\t\t<a href=\"javascript:;\" class=\"datapicker__time-selector-text\" id=\"_j_month_text\">{month}月</a>\r\n\t\t\t\t\t<a href=\"javascript:;\" class=\"datapicker__time-selector-arrow datapicker__time-selector-next\" id=\"_j_month_next\" >&gt;</a>\r\n\t\t\t\t</div>\r\n\t\t\t</div>\r\n\t\t</div>\r\n\t\t<div class=\"datapicker__panel\">\r\n\t\t\t<ul class=\"datapicker__week-list\">\r\n\t\t\t\t<li class=\"datapicker__week-item\">日</li>\r\n\t\t\t\t<li class=\"datapicker__week-item\">一</li>\r\n\t\t\t\t<li class=\"datapicker__week-item\">二</li>\r\n\t\t\t\t<li class=\"datapicker__week-item\">三</li>\r\n\t\t\t\t<li class=\"datapicker__week-item\">四</li>\r\n\t\t\t\t<li class=\"datapicker__week-item\">五</li>\r\n\t\t\t\t<li class=\"datapicker__week-item\">六</li>\r\n\t\t\t</ul>\r\n\t\t\t<ul class=\"datapicker__day-list\">\r\n\t\t\t\t{all_days}\r\n\t\t\t</ul>\r\n\t\t</div>\r\n\t\t\r\n\t\t<div class=\"datapicker__footer\">\r\n\t\t\t<div class=\"datapicker__btn\">确定</div>\r\n\t\t\t<div class=\"datapicker__btn\">取消</div>\r\n\t\t</div>\r\n\t</div>\r\n</div>";
+module.exports = "<div class=\"datepicker\">\r\n\t<div class=\"datapicker__mask\"></div>\r\n\t<div class=\"datapicker__main\">\r\n\t\t<div class=\"datapicker__header\">\r\n\t\t\t<div class=\"datapicker__time-toggle\"></div>\r\n\t\t\t<div class=\"datapicker__time-selector-list\">\r\n\t\t\t\t<div class=\"datapicker__time-selector-item\">\r\n\t\t\t\t\t<a href=\"javascript:;\" class=\"datapicker__time-selector-arrow datapicker__time-selector-prev\" id=\"_j_year_prev\">&lt;</a>\r\n\t\t\t\t\t<a href=\"javascript:;\" class=\"datapicker__time-selector-text\" id=\"_j_year_text\">{year}年</a>\r\n\t\t\t\t\t<a href=\"javascript:;\" class=\"datapicker__time-selector-arrow datapicker__time-selector-next\" id=\"_j_year_next\">&gt;</a>\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"datapicker__time-selector-item\">\r\n\t\t\t\t\t<a href=\"javascript:;\" class=\"datapicker__time-selector-arrow datapicker__time-selector-prev\" id=\"_j_month_prev\">&lt;</a>\r\n\t\t\t\t\t<a href=\"javascript:;\" class=\"datapicker__time-selector-text\" id=\"_j_month_text\">{month}月</a>\r\n\t\t\t\t\t<a href=\"javascript:;\" class=\"datapicker__time-selector-arrow datapicker__time-selector-next\" id=\"_j_month_next\" >&gt;</a>\r\n\t\t\t\t</div>\r\n\t\t\t</div>\r\n\t\t</div>\r\n\t\t<div class=\"datapicker__panel\">\r\n\t\t\t<!-- <ul class=\"datapicker__year-list\">\r\n\t\t\t\t<li class=\"datapicker__year-item\">2011</li>\r\n\t\t\t\t<li class=\"datapicker__year-item\">2012</li>\t\t\t\t\r\n\t\t\t\t<li class=\"datapicker__year-item\">2013</li>\r\n\t\t\t\t<li class=\"datapicker__year-item\">2014</li>\r\n\t\t\t\t<li class=\"datapicker__year-item\">2015</li>\r\n\t\t\t\t<li class=\"datapicker__year-item datapicker__year-item_active\">2016</li>\r\n\t\t\t\t<li class=\"datapicker__year-item\">2017</li>\r\n\t\t\t\t<li class=\"datapicker__year-item\">2018</li>\r\n\t\t\t\t<li class=\"datapicker__year-item\">2019</li>\r\n\t\t\t\t<li class=\"datapicker__year-item\">2020</li>\r\n\t\t\t\t<li class=\"datapicker__year-item\">2021</li>\r\n\t\t\t\t<li class=\"datapicker__year-item\">2022</li>\r\n\t\t\t</ul> -->\r\n\r\n\t\t\t<ul class=\"datapicker__week-list\">\r\n\t\t\t\t<li class=\"datapicker__week-item\">日</li>\r\n\t\t\t\t<li class=\"datapicker__week-item\">一</li>\r\n\t\t\t\t<li class=\"datapicker__week-item\">二</li>\r\n\t\t\t\t<li class=\"datapicker__week-item\">三</li>\r\n\t\t\t\t<li class=\"datapicker__week-item\">四</li>\r\n\t\t\t\t<li class=\"datapicker__week-item\">五</li>\r\n\t\t\t\t<li class=\"datapicker__week-item\">六</li>\r\n\t\t\t</ul>\r\n\r\n\t\t\t<ul class=\"datapicker__day-list\">\r\n\t\t\t\t{all_days}\r\n\t\t\t</ul>\r\n\t\t</div>\r\n\t\t\r\n\t\t<div class=\"datapicker__footer\">\r\n\t\t\t<div class=\"datapicker__btn\" id=\"_j_confirm_btn\">确定</div>\r\n\t\t\t<div class=\"datapicker__btn\" id=\"_j_cancel_btn\">取消</div>\r\n\t\t</div>\r\n\t</div>\r\n</div>";
 
 },{}],5:[function(require,module,exports){
 /**
@@ -210,10 +210,12 @@ var tpl  	  = require('./datepicker.html'),
 	fastClick = require('fastclick');
 
 var _defaultConfig = {
-	minDate   : '',
-	maxDate   : '',
-	currDate  : new Date(),
-	panelShow : 'datepicker_show'
+	minDate    : '',
+	maxDate    : '',
+	currDate   : new Date(),
+	panelShow  : 'datepicker_show',
+	activeCls  : 'datapicker__day-item_active',
+	confirmCbk : null
 };
 
 function DatePicker(options) {
@@ -237,12 +239,17 @@ var prototype = {
 		
 		fastClick(document.body);
 
-		this.$mask.on('click', function() {
-			that.close.call(that, this);
-		});
+		this.$cancel.on('click', this.close.bind(this))
+		this.$mask.on('click',   this.close.bind(this));
+		this.$mPrev.on('click',  this._clickPrevMonth.bind(this));
+		this.$mNext.on('click',  this._clickNextMonth.bind(this));
+		this.$yPrev.on('click',  this._clickPrevYear.bind(this));
+		this.$yNext.on('click',  this._clickNextYear.bind(this));
+		this.$confirm.on('click', this._onClickConfirm.bind(this));
 
-		this.$mPrev.on('click', this._clickPrevMonth.bind(this));
-		this.$mNext.on('click', this._clickNextMonth.bind(this));
+		this.$panel.on('click', '.datapicker__day-item', function(e) {
+			that._onClickDayBtn.call(that, this);
+		});
 	},
 
 	_initDom: function() {
@@ -253,7 +260,9 @@ var prototype = {
 		this.$mPrev   = this.$panel.find('#_j_month_prev'); 
 		this.$mNext   = this.$panel.find('#_j_month_next');
 		this.$year    = this.$panel.find('#_j_year_text');
-		this.$month   = this.$panel.find('#_j_month_text')
+		this.$month   = this.$panel.find('#_j_month_text');
+		this.$cancel  = this.$panel.find('#_j_cancel_btn');
+		this.$confirm = this.$panel.find('#_j_confirm_btn');
 	},
 
 	_appendPanel: function() {
@@ -352,6 +361,49 @@ var prototype = {
 		this._syncDataToDom();
 	},
 
+	_clickPrevYear: function() {
+		var curr 	  = this._getCurrentData();
+
+		$('.datapicker__day-list').remove();
+		this._appendMonth(curr.year - 1, curr.month, curr.day);
+
+		this._saveCurrentData(curr.year - 1, curr.month, curr.day);		
+		this._syncDataToDom();
+	},
+
+	_clickNextYear: function() {
+		var curr 	  = this._getCurrentData();
+
+		$('.datapicker__day-list').remove();
+		this._appendMonth(curr.year + 1, curr.month, curr.day);
+
+		this._saveCurrentData(curr.year + 1, curr.month, curr.day);		
+		this._syncDataToDom();
+
+	},
+
+	_onClickDayBtn: function(btn) {
+		var grayCls   = this.config.grayCls,
+			activeCls = this.config.activeCls,
+			curr 	  = this._getCurrentData(), 
+			$day      = $(btn);
+
+		if ( $day.hasClass(grayCls) || $day.hasClass(activeCls) )
+			return;
+
+		$('.datapicker__day-item').removeClass(activeCls);
+		$day.addClass(activeCls);
+
+		this._saveCurrentData(curr.year, curr.month, parseInt($day.text()));
+	},
+
+	_onClickConfirm: function() {
+		var curr = this._getCurrentData();
+
+		this.close();
+		this.config.confirmCbk && this.config.confirmCbk(curr); 
+	},
+
 	open: function() {
 		this.$panel.addClass(this.config.panelShow);
 	},
@@ -365,11 +417,6 @@ util.extend(prototype, DatePicker.prototype);
 module.exports = {
 	DatePicker: DatePicker
 };
-
-var datePicker = new DatePicker();
-setTimeout(function() {
-	datePicker.open();
-}, 0);
 
 },{"./dateparse":3,"./datepicker.html":4,"./util":6,"fastclick":7}],6:[function(require,module,exports){
 /**

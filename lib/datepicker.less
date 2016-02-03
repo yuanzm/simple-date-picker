@@ -125,6 +125,7 @@
 
 .datapicker__panel {
 	overflow: hidden;
+	position: relative;
 }
 
 .datapicker__day-list {
@@ -142,6 +143,7 @@
 	text-align: center;
 	display: inline-block;
 	float: left;
+	cursor: pointer;
 }
 
 .datapicker__day-item_active {
@@ -165,4 +167,29 @@
 	text-align: center;
 	padding: 5px 10px;
 	float: right;
+	cursor: pointer;
+}
+
+.datapicker__year-list {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width:100%;
+	height: 100%;
+	z-index: 11004;
+	overflow: hidden;
+	background-color: #fff;
+}
+
+.datapicker__year-item {
+	width: 33.33%;
+	height: 70px;
+	line-height: 70px;
+	float: left;
+	text-align: center;
+}
+
+.datapicker__year-item_active {
+	background-color: @main-color1;
+	color: #fff;
 }
