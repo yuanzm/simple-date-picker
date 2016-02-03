@@ -1,0 +1,21 @@
+{
+  "name": "simple-date-picker",
+  "description": "plugin date picker",
+  "main": "index.js",
+  "authors": [
+    "yuanzm"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "plugin"
+  ],
+  "moduleType": [],
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
