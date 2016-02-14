@@ -197,7 +197,7 @@ DateParse.prototype = {
 module.exports = DateParse;
 
 },{}],4:[function(require,module,exports){
-module.exports = "<div class=\"datepicker\">\r\n\t<div class=\"datepicker__mask\"></div>\r\n\t<div class=\"datepicker__main\">\r\n\t\t<div class=\"datepicker__header\">\r\n\t\t\t<div class=\"datepicker__time-toggle\"></div>\r\n\t\t\t<div class=\"datepicker__time-selector-list\">\r\n\t\t\t\t<div class=\"datepicker__time-selector-item\">\r\n\t\t\t\t\t<a href=\"javascript:;\" class=\"datepicker__time-selector-arrow datepicker__time-selector-prev\" id=\"_j_year_prev\">&lt;</a>\r\n\t\t\t\t\t<a href=\"javascript:;\" class=\"datepicker__time-selector-text\" id=\"_j_year_text\">{year}年</a>\r\n\t\t\t\t\t<a href=\"javascript:;\" class=\"datepicker__time-selector-arrow datepicker__time-selector-next\" id=\"_j_year_next\">&gt;</a>\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"datepicker__time-selector-item\">\r\n\t\t\t\t\t<a href=\"javascript:;\" class=\"datepicker__time-selector-arrow datepicker__time-selector-prev\" id=\"_j_month_prev\">&lt;</a>\r\n\t\t\t\t\t<a href=\"javascript:;\" class=\"datepicker__time-selector-text\" id=\"_j_month_text\">{month}月</a>\r\n\t\t\t\t\t<a href=\"javascript:;\" class=\"datepicker__time-selector-arrow datepicker__time-selector-next\" id=\"_j_month_next\" >&gt;</a>\r\n\t\t\t\t</div>\r\n\t\t\t</div>\r\n\t\t</div>\r\n\t\t<div class=\"datepicker__panel\">\r\n\t\t\t<ul class=\"datepicker__week-list\">\r\n\t\t\t\t<li class=\"datepicker__week-item\">日</li>\r\n\t\t\t\t<li class=\"datepicker__week-item\">一</li>\r\n\t\t\t\t<li class=\"datepicker__week-item\">二</li>\r\n\t\t\t\t<li class=\"datepicker__week-item\">三</li>\r\n\t\t\t\t<li class=\"datepicker__week-item\">四</li>\r\n\t\t\t\t<li class=\"datepicker__week-item\">五</li>\r\n\t\t\t\t<li class=\"datepicker__week-item\">六</li>\r\n\t\t\t</ul>\r\n\r\n\t\t\t<div class=\"datepicker__day-wrap\">\r\n\t\t\t\t<ul class=\"datepicker__day-list datepicker__day-list-curr\">\r\n\t\t\t\t\t{all_days}\r\n\t\t\t\t</ul>\r\n\t\t\t</div>\r\n\t\t</div>\r\n\t\t\r\n\t\t<div class=\"datepicker__footer\">\r\n\t\t\t<div class=\"datepicker__btn\" id=\"_j_confirm_btn\">确定</div>\r\n\t\t\t<div class=\"datepicker__btn\" id=\"_j_cancel_btn\">取消</div>\r\n\t\t</div>\r\n\t</div>\r\n</div>";
+module.exports = "<div class=\"datepicker ui-d-n\">\r\n\t<div class=\"datepicker__mask\"></div>\r\n\t<div class=\"datepicker__main\">\r\n\t\t<div class=\"datepicker__header\">\r\n\t\t\t<div class=\"datepicker__time-toggle\"></div>\r\n\t\t\t<div class=\"datepicker__time-selector-list\">\r\n\t\t\t\t<div class=\"datepicker__time-selector-item\">\r\n\t\t\t\t\t<a href=\"javascript:;\" class=\"datepicker__time-selector-arrow datepicker__time-selector-prev\" id=\"_j_year_prev\">&lt;</a>\r\n\t\t\t\t\t<a href=\"javascript:;\" class=\"datepicker__time-selector-text\" id=\"_j_year_text\">{year}年</a>\r\n\t\t\t\t\t<a href=\"javascript:;\" class=\"datepicker__time-selector-arrow datepicker__time-selector-next\" id=\"_j_year_next\">&gt;</a>\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"datepicker__time-selector-item\">\r\n\t\t\t\t\t<a href=\"javascript:;\" class=\"datepicker__time-selector-arrow datepicker__time-selector-prev\" id=\"_j_month_prev\">&lt;</a>\r\n\t\t\t\t\t<a href=\"javascript:;\" class=\"datepicker__time-selector-text\" id=\"_j_month_text\">{month}月</a>\r\n\t\t\t\t\t<a href=\"javascript:;\" class=\"datepicker__time-selector-arrow datepicker__time-selector-next\" id=\"_j_month_next\" >&gt;</a>\r\n\t\t\t\t</div>\r\n\t\t\t</div>\r\n\t\t</div>\r\n\t\t<div class=\"datepicker__panel\">\r\n\t\t\t<ul class=\"datepicker__week-list\">\r\n\t\t\t\t<li class=\"datepicker__week-item\">日</li>\r\n\t\t\t\t<li class=\"datepicker__week-item\">一</li>\r\n\t\t\t\t<li class=\"datepicker__week-item\">二</li>\r\n\t\t\t\t<li class=\"datepicker__week-item\">三</li>\r\n\t\t\t\t<li class=\"datepicker__week-item\">四</li>\r\n\t\t\t\t<li class=\"datepicker__week-item\">五</li>\r\n\t\t\t\t<li class=\"datepicker__week-item\">六</li>\r\n\t\t\t</ul>\r\n\r\n\t\t\t<div class=\"datepicker__day-wrap\">\r\n\t\t\t\t<ul class=\"datepicker__day-list datepicker__day-list-curr\">\r\n\t\t\t\t\t{all_days}\r\n\t\t\t\t</ul>\r\n\t\t\t</div>\r\n\t\t</div>\r\n\t\t\r\n\t\t<div class=\"datepicker__footer\">\r\n\t\t\t<div class=\"datepicker__btn\" id=\"_j_confirm_btn\">确定</div>\r\n\t\t\t<div class=\"datepicker__btn\" id=\"_j_cancel_btn\">取消</div>\r\n\t\t</div>\r\n\t</div>\r\n</div>";
 
 },{}],5:[function(require,module,exports){
 /**
@@ -216,6 +216,7 @@ var _defaultConfig = {
 	maxDate    : '',
 	currDate   : new Date(),
 	panelShow  : 'datepicker_show',
+	grayCls    : 'datepicker__day-item_gray',
 	activeCls  : 'datepicker__day-item_active',
 	confirmCbk : null
 };
@@ -253,16 +254,17 @@ var prototype = {
 			that._onClickDayBtn.call(that, this);
 		});
 
-		this.$panel.on('webkitTransitionEnd', '.datepicker__day-list_prev', function() {
+		this.$panel.on('transitionend', '.datepicker__day-list_prev', function() {
 			$(this).remove();	
 		});
 
-		this.$panel.on('webkitTransitionEnd', '.datepicker__day-list_next', function() {
+		this.$panel.on('transitionend', '.datepicker__day-list_next', function() {
 			$(this).remove();	
 		});
 	},
 
 	_initDom: function() {
+		this.$picker  = $('.datepicker'); 
 		this.$mask    = this.$panel.find('.datepicker__mask');
 		this.$dayList = this.$panel.find('.datepicker__day-wrap'); 
 		this.$yPrev   = this.$panel.find('#_j_year_prev');
@@ -424,10 +426,12 @@ var prototype = {
 	},
 
 	open: function() {
+		this.$picker.removeClass('ui-d-n');
 		this.$panel.addClass(this.config.panelShow);
 	},
 
 	close: function() {
+		this.$picker.addClass('ui-d-n');
 		this.$panel.removeClass(this.config.panelShow);	
 	}
 };

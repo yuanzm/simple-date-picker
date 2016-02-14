@@ -15,18 +15,21 @@
     <link rel="stylesheet" type="text/css" href="./../bin/datepicker.css">
 </head>
 <body>
-	
+	<input type="text" id="date" readonly>
 </body>
 <script type="text/javascript" src="./zepto.min.js"></script>
 <script type="text/javascript" src="./../bin/datepicker.js"></script>
 <script type="text/javascript">
+    var _date = document.getElementById('date');
+
 	var datePicker = new window.DatePicker({
 		confirmCbk: function(data) {
-			console.log(data);
+            _date.value = data.year + '-' + data.month + '-' + data.day;
 		}
 	});
-	setTimeout(function() {
+
+    _date.onclick = function(e) {
 		datePicker.open();
-	}, 0);
+    };
 </script>
 </html>
