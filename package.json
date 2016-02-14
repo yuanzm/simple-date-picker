@@ -1,6 +1,6 @@
 {
-  "name": "simple-date-picker",
-  "version": "1.0.0",
+  "name": "date_picker",
+  "version": "1.0.1",
   "description": "plugin date picker",
   "main": "index.js",
   "directories": {
