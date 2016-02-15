@@ -259,6 +259,11 @@ var prototype = {
 		this.$panel.on('transitionend', '.datepicker__day-list_next', function() {
 			$(this).remove();	
 		});
+
+		this.$panel.on('transitionend', '.datepicker__mask', function() {
+			if ( !that.$picker.hasClass(that.config.panelShow) )
+				that.$picker.addClass('ui-d-n');
+		});
 	},
 
 	_initDom: function() {
@@ -424,13 +429,18 @@ var prototype = {
 	},
 
 	open: function() {
-		this.$picker.removeClass('ui-d-n');
-		this.$panel.addClass(this.config.panelShow);
+		var that = this;
+
+		that.$picker.removeClass('ui-d-n');
+		setTimeout(function() {
+			that.$panel.addClass(that.config.panelShow);
+		}, 0);
 	},
 
 	close: function() {
-		this.$picker.addClass('ui-d-n');
-		this.$panel.removeClass(this.config.panelShow);	
+		var that = this;
+
+		that.$panel.removeClass(that.config.panelShow);	
 	}
 };
 
