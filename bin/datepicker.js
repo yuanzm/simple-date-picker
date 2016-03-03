@@ -200,7 +200,7 @@ module.exports = DateParse;
 },{}],4:[function(require,module,exports){
 /**
  * @author: zimyuan
- * @last-edit-date: 2015-02-13
+ * @last-edit-date: 2015-03-03
  */
 
 var tpl  	  = require('./datepicker_tpl'),
@@ -236,8 +236,9 @@ var prototype = {
 	},
 
 	_initEvents: function() {
-		var that = this;
-		
+		var that   = this;
+			aniEvt = util.whichTransitionEvent();
+
 		fastClick(document.body);
 
 		this.$cancel.on('click', this.close.bind(this))
@@ -252,15 +253,15 @@ var prototype = {
 			that._onClickDayBtn.call(that, this);
 		});
 
-		this.$panel.on('transitionend', '.datepicker__day-list_prev', function() {
+		this.$panel.on(aniEvt, '.datepicker__day-list_prev', function() {
 			$(this).remove();	
 		});
 
-		this.$panel.on('transitionend', '.datepicker__day-list_next', function() {
+		this.$panel.on(aniEvt, '.datepicker__day-list_next', function() {
 			$(this).remove();	
 		});
 
-		this.$panel.on('transitionend', '.datepicker__mask', function() {
+		this.$panel.on(aniEvt, '.datepicker__mask', function() {
 			if ( !that.$picker.hasClass(that.config.panelShow) )
 				that.$picker.addClass('ui-d-n');
 		});
@@ -428,19 +429,26 @@ var prototype = {
 		this.config.confirmCbk && this.config.confirmCbk(curr); 
 	},
 
-	open: function() {
+	open: function(el) {
 		var that = this;
+
+		that.$el = (  el
+					? el
+					: null  );		
 
 		that.$picker.removeClass('ui-d-n');
 		setTimeout(function() {
 			that.$panel.addClass(that.config.panelShow);
-		}, 0);
+		}, 30);
 	},
 
 	close: function() {
 		var that = this;
 
 		that.$panel.removeClass(that.config.panelShow);	
+		setTimeout(function() {
+			that.$picker.addClass('ui-d-n');
+		}, 310);
 	}
 };
 
@@ -521,6 +529,26 @@ var util = {
 	    return tpl.replace(/\{(\w+)\}/g, function(m, n) {
 	        return obj[n] !== undefined ? obj[n].toString() : m;
 	    });
+	},
+
+	whichTransitionEvent: function() {
+	    var t,
+	    	el = document.createElement('fakeelement');
+	    	transitions = {
+		        'OTransition'       :'oTransitionEnd',
+		        'MSTransition'      :'msTransitionEnd',
+		        'MozTransition'     :'transitionend',
+		        'WebkitTransition'  :'webkitTransitionEnd',
+		        'transition' 		:'transitionEnd'
+		    };
+
+	    for(t in transitions){
+	        if( el.style[t] !== undefined ){
+	            return transitions[t];
+	        }
+	    }
+
+	    return false;
 	}
 };
 

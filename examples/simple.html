@@ -11,11 +11,16 @@
 			margin: 0;
 			padding: 0;
 		}
+		#date {
+			margin-top: 20px;
+			width: 100px;
+			height: 35px;
+		}
     </style>
     <link rel="stylesheet" type="text/css" href="./../bin/datepicker.css">
 </head>
 <body>
-	<input type="text" id="date" readonly>
+	<input type="text" id="date">
 </body>
 <script type="text/javascript" src="./zepto.min.js"></script>
 <script type="text/javascript" src="./../bin/datepicker.js"></script>
@@ -28,7 +33,8 @@
 		}
 	});
 
-    _date.onclick = function(e) {
+    _date.onfocus = function(e) {
+    	_date.blur();
 		datePicker.open();
     };
 </script>
