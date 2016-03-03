@@ -43,6 +43,19 @@
                     }
                 }
             },
+
+            cssmin: {
+                options: {
+                    shorthandCompacting: false,
+                    roundingPrecision: -1
+                },
+                target: {
+                    files: {
+                        'bin/datepicker.min.css': ['bin/datepicker.css']
+                    }
+                }
+            },
+
             connect: {
                 server: {
                     options: {
@@ -59,6 +72,7 @@
         grunt.loadNpmTasks("grunt-contrib-uglify");
         grunt.loadNpmTasks('grunt-contrib-less');
         grunt.loadNpmTasks('grunt-contrib-connect');
+        grunt.loadNpmTasks('grunt-contrib-cssmin');
 
         grunt.registerTask("default", function() {
             return grunt.task.run([
@@ -75,7 +89,8 @@
                 "clean",
                 "less",
                 "browserify",
-                "uglify"
+                "uglify",
+                "cssmin"
             ]);
         });
     };

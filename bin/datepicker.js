@@ -1,11 +1,12 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
-window.DatePicker = require('./index.js').DatePicker;
+window.DatePicker = require('./index.js');
 },{"./index.js":2}],2:[function(require,module,exports){
-module.exports = require('./lib/datepicker');
-},{"./lib/datepicker":5}],3:[function(require,module,exports){
+module.exports = require('./lib/datepicker').DatePicker;
+
+},{"./lib/datepicker":4}],3:[function(require,module,exports){
 /**
  * @author: zimyuan
- * @last-edit-date: 2016-02-03
+ * @last-edit-date: 2016-02-13
  */
 
 /**
@@ -197,24 +198,24 @@ DateParse.prototype = {
 module.exports = DateParse;
 
 },{}],4:[function(require,module,exports){
-module.exports = "<div class=\"datepicker\">\r\n\t<div class=\"datapicker__mask\"></div>\r\n\t<div class=\"datapicker__main\">\r\n\t\t<div class=\"datapicker__header\">\r\n\t\t\t<div class=\"datapicker__time-toggle\"></div>\r\n\t\t\t<div class=\"datapicker__time-selector-list\">\r\n\t\t\t\t<div class=\"datapicker__time-selector-item\">\r\n\t\t\t\t\t<a href=\"javascript:;\" class=\"datapicker__time-selector-arrow datapicker__time-selector-prev\" id=\"_j_year_prev\">&lt;</a>\r\n\t\t\t\t\t<a href=\"javascript:;\" class=\"datapicker__time-selector-text\" id=\"_j_year_text\">{year}年</a>\r\n\t\t\t\t\t<a href=\"javascript:;\" class=\"datapicker__time-selector-arrow datapicker__time-selector-next\" id=\"_j_year_next\">&gt;</a>\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"datapicker__time-selector-item\">\r\n\t\t\t\t\t<a href=\"javascript:;\" class=\"datapicker__time-selector-arrow datapicker__time-selector-prev\" id=\"_j_month_prev\">&lt;</a>\r\n\t\t\t\t\t<a href=\"javascript:;\" class=\"datapicker__time-selector-text\" id=\"_j_month_text\">{month}月</a>\r\n\t\t\t\t\t<a href=\"javascript:;\" class=\"datapicker__time-selector-arrow datapicker__time-selector-next\" id=\"_j_month_next\" >&gt;</a>\r\n\t\t\t\t</div>\r\n\t\t\t</div>\r\n\t\t</div>\r\n\t\t<div class=\"datapicker__panel\">\r\n\t\t\t<!-- <ul class=\"datapicker__year-list\">\r\n\t\t\t\t<li class=\"datapicker__year-item\">2011</li>\r\n\t\t\t\t<li class=\"datapicker__year-item\">2012</li>\t\t\t\t\r\n\t\t\t\t<li class=\"datapicker__year-item\">2013</li>\r\n\t\t\t\t<li class=\"datapicker__year-item\">2014</li>\r\n\t\t\t\t<li class=\"datapicker__year-item\">2015</li>\r\n\t\t\t\t<li class=\"datapicker__year-item datapicker__year-item_active\">2016</li>\r\n\t\t\t\t<li class=\"datapicker__year-item\">2017</li>\r\n\t\t\t\t<li class=\"datapicker__year-item\">2018</li>\r\n\t\t\t\t<li class=\"datapicker__year-item\">2019</li>\r\n\t\t\t\t<li class=\"datapicker__year-item\">2020</li>\r\n\t\t\t\t<li class=\"datapicker__year-item\">2021</li>\r\n\t\t\t\t<li class=\"datapicker__year-item\">2022</li>\r\n\t\t\t</ul> -->\r\n\r\n\t\t\t<ul class=\"datapicker__week-list\">\r\n\t\t\t\t<li class=\"datapicker__week-item\">日</li>\r\n\t\t\t\t<li class=\"datapicker__week-item\">一</li>\r\n\t\t\t\t<li class=\"datapicker__week-item\">二</li>\r\n\t\t\t\t<li class=\"datapicker__week-item\">三</li>\r\n\t\t\t\t<li class=\"datapicker__week-item\">四</li>\r\n\t\t\t\t<li class=\"datapicker__week-item\">五</li>\r\n\t\t\t\t<li class=\"datapicker__week-item\">六</li>\r\n\t\t\t</ul>\r\n\r\n\t\t\t<ul class=\"datapicker__day-list\">\r\n\t\t\t\t{all_days}\r\n\t\t\t</ul>\r\n\t\t</div>\r\n\t\t\r\n\t\t<div class=\"datapicker__footer\">\r\n\t\t\t<div class=\"datapicker__btn\" id=\"_j_confirm_btn\">确定</div>\r\n\t\t\t<div class=\"datapicker__btn\" id=\"_j_cancel_btn\">取消</div>\r\n\t\t</div>\r\n\t</div>\r\n</div>";
-
-},{}],5:[function(require,module,exports){
 /**
  * @author: zimyuan
- * @last-edit-date: 2015-02-02
+ * @last-edit-date: 2015-03-03
  */
-var tpl  	  = require('./datepicker.html'),
+
+var tpl  	  = require('./datepicker_tpl'),
 	util 	  = require('./util'),
 	DateParse = require('./dateparse'),
 	fastClick = require('fastclick');
 
+// 组件默认配置
 var _defaultConfig = {
 	minDate    : '',
 	maxDate    : '',
 	currDate   : new Date(),
 	panelShow  : 'datepicker_show',
-	activeCls  : 'datapicker__day-item_active',
+	grayCls    : 'datepicker__day-item_gray',
+	activeCls  : 'datepicker__day-item_active',
 	confirmCbk : null
 };
 
@@ -235,8 +236,9 @@ var prototype = {
 	},
 
 	_initEvents: function() {
-		var that = this;
-		
+		var that   = this;
+			aniEvt = util.whichTransitionEvent();
+
 		fastClick(document.body);
 
 		this.$cancel.on('click', this.close.bind(this))
@@ -247,14 +249,28 @@ var prototype = {
 		this.$yNext.on('click',  this._clickNextYear.bind(this));
 		this.$confirm.on('click', this._onClickConfirm.bind(this));
 
-		this.$panel.on('click', '.datapicker__day-item', function(e) {
+		this.$panel.on('click', '.datepicker__day-item', function(e) {
 			that._onClickDayBtn.call(that, this);
+		});
+
+		this.$panel.on(aniEvt, '.datepicker__day-list_prev', function() {
+			$(this).remove();	
+		});
+
+		this.$panel.on(aniEvt, '.datepicker__day-list_next', function() {
+			$(this).remove();	
+		});
+
+		this.$panel.on(aniEvt, '.datepicker__mask', function() {
+			if ( !that.$picker.hasClass(that.config.panelShow) )
+				that.$picker.addClass('ui-d-n');
 		});
 	},
 
 	_initDom: function() {
-		this.$mask    = this.$panel.find('.datapicker__mask');
-		this.$dayList = this.$panel.find('.datapicker__panel'); 
+		this.$picker  = $('.datepicker'); 
+		this.$mask    = this.$panel.find('.datepicker__mask');
+		this.$dayList = this.$panel.find('.datepicker__day-wrap'); 
 		this.$yPrev   = this.$panel.find('#_j_year_prev');
 		this.$yNext	  = this.$panel.find('#_j_year_next');
 		this.$mPrev   = this.$panel.find('#_j_month_prev'); 
@@ -264,7 +280,7 @@ var prototype = {
 		this.$cancel  = this.$panel.find('#_j_cancel_btn');
 		this.$confirm = this.$panel.find('#_j_confirm_btn');
 	},
-
+	
 	_appendPanel: function() {
 		var that 	 = this,
 			currDate = this.config.currDate,
@@ -280,15 +296,16 @@ var prototype = {
 
 		this.$panel = $(util.format(tpl, rdata));
 		$("body").append(this.$panel);
+
 		// 保存当前信息
-		this._saveCurrentData(year, month, currDate.getDay());
+		this._saveCurrentData(year, month, currDate.getDate());
 	},
 
 	_genOneMonthStr: function(list) {
 		var htmlArr = [],
-			base    = 'datapicker__day-item ',
-			gray    = 'datapicker__day-item_gray',
-			active  = 'datapicker__day-item_active',
+			base    = 'datepicker__day-item ',
+			gray    = 'datepicker__day-item_gray',
+			active  = 'datepicker__day-item_active',
 			_class   = '',
 			temp    = '';
 
@@ -306,12 +323,37 @@ var prototype = {
 		return htmlArr;
 	},
 
-	_appendMonth: function(year, month, day) {
+	_appendMonth: function(year, month, day, isprev) {
 		var dayList  = this.getOneMonth(year, month, day),
 			all_days = this._genOneMonthStr(dayList).join('');
-			$newMonth = $('<ul class="datapicker__day-list">' + all_days + '</ul>');
+			_class   = (  isprev
+						? 'datepicker__day-list datepicker__day-list_prev'
+						: 'datepicker__day-list datepicker__day-list_next'  ),
+			$newMonth = $('<ul class="' + _class + '">' + all_days + '</ul>');
 
 		this.$dayList.append($newMonth);
+	},
+
+	_toggleMonth: function(newYear, newMonth, newDay, isprev) {
+		this._appendMonth(newYear, newMonth, newDay, isprev);
+
+		this._saveCurrentData(newYear, newMonth, newDay);
+		this._syncDataToDom();
+
+		var _curr   = 'datepicker__day-list-curr', 
+			_class1 = ( isprev
+					   ? 'datepicker__day-list_prev'
+					   : 'datepicker__day-list_next' ),
+			_class2 = ( isprev
+					   ? 'datepicker__day-list_next'
+					   : 'datepicker__day-list_prev'  );		
+
+		var $curr = $('.' + _curr);
+
+		setTimeout(function() {
+			$('.' + _class1).removeClass(_class1).addClass(_curr);
+			$curr.addClass(_class2).removeClass(_curr);
+		}, 0);
 	},
 
 	_saveCurrentData: function(year, month, day) {
@@ -334,18 +376,14 @@ var prototype = {
 		this.$year.text(curr.year + '年');
 		this.$month.text(month + '月');
 	},
-
+	
 	_clickPrevMonth: function() {
 		var curr 	  = this._getCurrentData();
 			last 	  = this.getLastMonth(curr.year, curr.month),
 			prevYear  = last.year,
 			prevMonth = last.month;
 
-		$('.datapicker__day-list').remove();
-		this._appendMonth(prevYear, prevMonth, curr.day);
-
-		this._saveCurrentData(prevYear, prevMonth, curr.day);
-		this._syncDataToDom();
+		this._toggleMonth(prevYear, prevMonth, curr.day, 1);
 	},
 
 	_clickNextMonth: function() {
@@ -354,32 +392,19 @@ var prototype = {
 			nextYear  = next.year,
 			nextMonth = next.month;
 
-		$('.datapicker__day-list').remove();
-		this._appendMonth(nextYear, nextMonth, curr.day);
-
-		this._saveCurrentData(nextYear, nextMonth, curr.day);		
-		this._syncDataToDom();
+		this._toggleMonth(nextYear, nextMonth, curr.day, 0);
 	},
 
 	_clickPrevYear: function() {
 		var curr 	  = this._getCurrentData();
 
-		$('.datapicker__day-list').remove();
-		this._appendMonth(curr.year - 1, curr.month, curr.day);
-
-		this._saveCurrentData(curr.year - 1, curr.month, curr.day);		
-		this._syncDataToDom();
+		this._toggleMonth(curr.year - 1, curr.month, curr.day, 1);
 	},
 
 	_clickNextYear: function() {
 		var curr 	  = this._getCurrentData();
 
-		$('.datapicker__day-list').remove();
-		this._appendMonth(curr.year + 1, curr.month, curr.day);
-
-		this._saveCurrentData(curr.year + 1, curr.month, curr.day);		
-		this._syncDataToDom();
-
+		this._toggleMonth(curr.year + 1, curr.month, curr.day, 0);		
 	},
 
 	_onClickDayBtn: function(btn) {
@@ -391,7 +416,7 @@ var prototype = {
 		if ( $day.hasClass(grayCls) || $day.hasClass(activeCls) )
 			return;
 
-		$('.datapicker__day-item').removeClass(activeCls);
+		$('.datepicker__day-item').removeClass(activeCls);
 		$day.addClass(activeCls);
 
 		this._saveCurrentData(curr.year, curr.month, parseInt($day.text()));
@@ -404,12 +429,26 @@ var prototype = {
 		this.config.confirmCbk && this.config.confirmCbk(curr); 
 	},
 
-	open: function() {
-		this.$panel.addClass(this.config.panelShow);
+	open: function(el) {
+		var that = this;
+
+		that.$el = (  el
+					? el
+					: null  );		
+
+		that.$picker.removeClass('ui-d-n');
+		setTimeout(function() {
+			that.$panel.addClass(that.config.panelShow);
+		}, 30);
 	},
 
 	close: function() {
-		this.$panel.removeClass(this.config.panelShow);	
+		var that = this;
+
+		that.$panel.removeClass(that.config.panelShow);	
+		setTimeout(function() {
+			that.$picker.addClass('ui-d-n');
+		}, 310);
 	}
 };
 
@@ -418,7 +457,54 @@ module.exports = {
 	DatePicker: DatePicker
 };
 
-},{"./dateparse":3,"./datepicker.html":4,"./util":6,"fastclick":7}],6:[function(require,module,exports){
+},{"./dateparse":3,"./datepicker_tpl":5,"./util":6,"fastclick":7}],5:[function(require,module,exports){
+var tpl = [
+	'<div class="datepicker ui-d-n">',
+	'	<div class="datepicker__mask"></div>',
+	'	<div class="datepicker__main">',
+	'		<div class="datepicker__header">',
+	'			<div class="datepicker__time-toggle"></div>',
+	'			<div class="datepicker__time-selector-list">',
+	'				<div class="datepicker__time-selector-item">',
+	'					<a href="javascript:;" class="datepicker__time-selector-arrow datepicker__time-selector-prev" id="_j_year_prev">&lt;</a>',
+	'					<a href="javascript:;" class="datepicker__time-selector-text" id="_j_year_text">{year}年</a>',
+	'					<a href="javascript:;" class="datepicker__time-selector-arrow datepicker__time-selector-next" id="_j_year_next">&gt;</a>',
+	'				</div>',
+	'				<div class="datepicker__time-selector-item">',
+	'					<a href="javascript:;" class="datepicker__time-selector-arrow datepicker__time-selector-prev" id="_j_month_prev">&lt;</a>',
+	'					<a href="javascript:;" class="datepicker__time-selector-text" id="_j_month_text">{month}月</a>',
+	'					<a href="javascript:;" class="datepicker__time-selector-arrow datepicker__time-selector-next" id="_j_month_next" >&gt;</a>',
+	'				</div>',
+	'			</div>',
+	'		</div>',
+	'		<div class="datepicker__panel">',
+	'			<ul class="datepicker__week-list">',
+	'				<li class="datepicker__week-item">日</li>',
+	'				<li class="datepicker__week-item">一</li>',
+	'				<li class="datepicker__week-item">二</li>',
+	'				<li class="datepicker__week-item">三</li>',
+	'				<li class="datepicker__week-item">四</li>',
+	'				<li class="datepicker__week-item">五</li>',
+	'				<li class="datepicker__week-item">六</li>',
+	'			</ul>',
+	'			<div class="datepicker__day-wrap">',
+	'				<ul class="datepicker__day-list datepicker__day-list-curr">',
+	'					{all_days}',
+	'				</ul>',
+	'			</div>',
+	'		</div>',
+	'		',
+	'		<div class="datepicker__footer">',
+	'			<div class="datepicker__btn" id="_j_confirm_btn">确定</div>',
+	'			<div class="datepicker__btn" id="_j_cancel_btn">取消</div>',
+	'		</div>',
+	'	</div>',
+	'</div>'
+].join("");
+
+module.exports = tpl;
+
+},{}],6:[function(require,module,exports){
 /**
  * @author: zimyuan
  * @last-edit-date: 2015-01-23
@@ -443,6 +529,27 @@ var util = {
 	    return tpl.replace(/\{(\w+)\}/g, function(m, n) {
 	        return obj[n] !== undefined ? obj[n].toString() : m;
 	    });
+	},
+
+	// http://stackoverflow.com/questions/13823188/android-4-1-change-transition-and-webkittransition-defiend-how-to-properly-de
+	whichTransitionEvent: function() {
+	    var t,
+	    	el = document.createElement('fakeelement');
+	    	transitions = {
+		        'OTransition'       :'oTransitionEnd',
+		        'MSTransition'      :'msTransitionEnd',
+		        'MozTransition'     :'transitionend',
+		        'WebkitTransition'  :'webkitTransitionEnd',
+		        'transition' 		:'transitionEnd'
+		    };
+
+	    for(t in transitions){
+	        if( el.style[t] !== undefined ){
+	            return transitions[t];
+	        }
+	    }
+
+	    return false;
 	}
 };
 

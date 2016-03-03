@@ -1,3 +1,6 @@
+.ui-d-n {
+  display: none;
+}
 .datepicker {
   font-size: 1em;
   font-family: "Helvetica Neue", Helvetica, Arial, "Microsoft Yahei", sans-serif;
@@ -13,7 +16,7 @@
 .datepicker a {
   text-decoration: none;
 }
-.datepicker_show .datapicker__mask {
+.datepicker_show .datepicker__mask {
   -moz-opacity: 0.6;
   /* 老版Mozilla */
   -khtml-opacity: 0.6;
@@ -21,14 +24,14 @@
   opacity: 0.6;
   /* 支持opacity的浏览器*/
 }
-.datepicker_show .datapicker__main {
+.datepicker_show .datepicker__main {
   -ms-transform: translate3d(0, 0, 0);
   -moz-transform: translate3d(0, 0, 0);
   -webkit-transform: translate3d(0, 0, 0);
   -o-transform: translate3d(0, 0, 0);
   transform: translate3d(0, 0, 0);
 }
-.datapicker__mask {
+.datepicker__mask {
   width: 100%;
   height: 100%;
   background-color: #000;
@@ -48,7 +51,7 @@
   -o-transition: -o-opacity 0.5s linear 0s;
   transition: opacity 0.5s linear 0s;
 }
-.datapicker__main {
+.datepicker__main {
   position: fixed;
   left: 0;
   bottom: 0;
@@ -69,14 +72,14 @@
   -o-transform: translate3d(0, 100%, 0);
   transform: translate3d(0, 100%, 0);
 }
-.datapicker__time-selector-item {
+.datepicker__time-selector-item {
   display: inline-block;
   width: 50%;
   height: 40px;
   line-height: 40px;
   position: relative;
 }
-.datapicker__time-selector-arrow {
+.datepicker__time-selector-arrow {
   position: absolute;
   top: 0;
   font-size: 1.6em;
@@ -86,23 +89,23 @@
   text-align: center;
   color: #4eccc4;
 }
-.datapicker__time-selector-next {
+.datepicker__time-selector-next {
   right: 0;
 }
-.datapicker__time-selector-text {
+.datepicker__time-selector-text {
   display: inline-block;
   width: 100%;
   text-align: center;
   font-size: 18px;
   color: #333;
 }
-.datapicker__week-list {
+.datepicker__week-list {
   width: 100%;
   overflow: hidden;
   border-bottom: 1px solid #4eccc4;
   list-style-type: none;
 }
-.datapicker__week-item {
+.datepicker__week-item {
   width: 14.2857%;
   height: 40px;
   text-align: center;
@@ -111,17 +114,47 @@
   color: #4eccc4;
   display: inline-block;
 }
-.datapicker__panel {
+.datepicker__panel {
   overflow: hidden;
   position: relative;
+  height: 281px;
 }
-.datapicker__day-list {
+.datepicker__day-wrap {
+  width: 100%;
+  height: 281px;
+}
+.datepicker__day-list {
   width: 100%;
   list-style-type: none;
   overflow: hidden;
-  float: left;
+  position: absolute;
+  left: 0;
+  -moz-transition: -moz-transform 0.2s ease-in-out 0s;
+  -ms-transition: -ms-transform 0.2s ease-in-out 0s;
+  -webkit-transition: -webkit-transform 0.2s ease-in-out 0s;
+  -o-transition: -o-transform 0.2s ease-in-out 0s;
+  transition: transform 0.2s ease-in-out 0s;
+  -ms-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
+  -o-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
 }
-.datapicker__day-item {
+.datepicker__day-list_prev {
+  -ms-transform: translate3d(-100%, 0, 0);
+  -moz-transform: translate3d(-100%, 0, 0);
+  -webkit-transform: translate3d(-100%, 0, 0);
+  -o-transform: translate3d(-100%, 0, 0);
+  transform: translate3d(-100%, 0, 0);
+}
+.datepicker__day-list_next {
+  -ms-transform: translate3d(100%, 0, 0);
+  -moz-transform: translate3d(100%, 0, 0);
+  -webkit-transform: translate3d(100%, 0, 0);
+  -o-transform: translate3d(100%, 0, 0);
+  transform: translate3d(100%, 0, 0);
+}
+.datepicker__day-item {
   width: 14.2857%;
   height: 40px;
   font-size: 0.875em;
@@ -131,44 +164,23 @@
   float: left;
   cursor: pointer;
 }
-.datapicker__day-item_active {
+.datepicker__day-item_active {
   background-color: #4eccc4;
   color: #fff;
 }
-.datapicker__day-item_gray {
+.datepicker__day-item_gray {
   color: #999;
 }
-.datapicker__footer {
+.datepicker__footer {
   margin-top: 10px;
   margin-bottom: 10px;
   overflow: hidden;
 }
-.datapicker__btn {
+.datepicker__btn {
   display: inline-block;
   color: #5F99EF;
   text-align: center;
   padding: 5px 10px;
   float: right;
   cursor: pointer;
-}
-.datapicker__year-list {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 11004;
-  overflow: hidden;
-  background-color: #fff;
-}
-.datapicker__year-item {
-  width: 33.33%;
-  height: 70px;
-  line-height: 70px;
-  float: left;
-  text-align: center;
-}
-.datapicker__year-item_active {
-  background-color: #4eccc4;
-  color: #fff;
 }
