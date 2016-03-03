@@ -531,6 +531,7 @@ var util = {
 	    });
 	},
 
+	// http://stackoverflow.com/questions/13823188/android-4-1-change-transition-and-webkittransition-defiend-how-to-properly-de
 	whichTransitionEvent: function() {
 	    var t,
 	    	el = document.createElement('fakeelement');
