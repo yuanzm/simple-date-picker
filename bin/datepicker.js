@@ -52,9 +52,10 @@ DateParse.prototype = {
 	 * @desc: 获取某一个月上个月的`年`和`月`
 	 * @param  {Number} year  : 四位数的年份
 	 * @param  {Number} month : 从1开始计算月份
+	 * @param  {Boolean} click_prev : 当用户点击上一个月的按钮时，月份是从0到11计算的
 	 * @return {Object}       : 包含上个月`年`和`月`信息的对象  
 	 */
-	getLastMonth: function(year, month) {
+	getLastMonth: function(year, month, click_prev) {
 		var lastMonth = (  month - 1 === 0
 					 ? 12
 					 : month - 1  ),
@@ -62,6 +63,15 @@ DateParse.prototype = {
 					 ? year - 1
 					 : year  );
 
+		if (!!click_prev ) {
+			lastMonth = ( month === 0
+				 		 ? 11
+				 		 : month - 1 );
+			lastYear  = (  month === 0
+				 		 ? year - 1
+				 		 : year  );
+		}
+		
 		return {
 			year  : lastYear,
 			month : lastMonth 
@@ -369,17 +379,21 @@ var prototype = {
 	},
 
 	_syncDataToDom: function() {
-		var curr  = this._getCurrentData();
+		var curr  = this._getCurrentData(),
 			month = (  curr.month === 0
 					 ? 12
-					 : curr.month  ); 
-		this.$year.text(curr.year + '年');
+					 : curr.month  ),
+			year  = (  curr.month === 0
+					 ? curr.year -1
+					 : curr.year  );
+
+		this.$year.text(year + '年');
 		this.$month.text(month + '月');
 	},
 	
 	_clickPrevMonth: function() {
 		var curr 	  = this._getCurrentData();
-			last 	  = this.getLastMonth(curr.year, curr.month),
+			last 	  = this.getLastMonth(curr.year, curr.month, true),
 			prevYear  = last.year,
 			prevMonth = last.month;
 
