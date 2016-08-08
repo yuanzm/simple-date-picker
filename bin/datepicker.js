@@ -210,7 +210,7 @@ module.exports = DateParse;
 },{}],4:[function(require,module,exports){
 /**
  * @author: zimyuan
- * @last-edit-date: 2015-03-03
+ * @last-edit-date: 2016-08-08
  */
 
 var tpl  	  = require('./datepicker_tpl'),
@@ -230,7 +230,7 @@ var _defaultConfig = {
 };
 
 function DatePicker(options) {
-	this.config = $.extend(_defaultConfig, options || {});
+	this.config     = $.extend({}, _defaultConfig, options || {});
 
 	this._init();
 }
@@ -240,7 +240,7 @@ util.inheritPrototype(DatePicker, DateParse);
 
 var prototype = {
 	_init: function() {
-		this._appendPanel();
+		this._appendPanel()
 		this._initDom();
 		this._initEvents();
 	},
@@ -268,7 +268,7 @@ var prototype = {
 		});
 
 		this.$panel.on(aniEvt, '.datepicker__day-list_next', function() {
-			$(this).remove();	
+			$(this).remove();
 		});
 
 		this.$panel.on(aniEvt, '.datepicker__mask', function() {
@@ -278,7 +278,7 @@ var prototype = {
 	},
 
 	_initDom: function() {
-		this.$picker  = $('.datepicker'); 
+		this.$picker  = $('#' + this.uuid); 
 		this.$mask    = this.$panel.find('.datepicker__mask');
 		this.$dayList = this.$panel.find('.datepicker__day-wrap'); 
 		this.$yPrev   = this.$panel.find('#_j_year_prev');
@@ -292,6 +292,8 @@ var prototype = {
 	},
 	
 	_appendPanel: function() {
+		this.uuid = util.generateUUID();
+
 		var that 	 = this,
 			currDate = this.config.currDate,
 			year     = currDate.getFullYear(),
@@ -299,6 +301,7 @@ var prototype = {
 			day   	 = currDate.getDate(),
 			dayList  = that.getOneMonth(year, month, day),
 			rdata    = {
+				uuid     : this.uuid,
 				year     : year,
 				month    : month,
 				all_days : that._genOneMonthStr(dayList).join('')
@@ -345,6 +348,8 @@ var prototype = {
 	},
 
 	_toggleMonth: function(newYear, newMonth, newDay, isprev) {
+		var that = this;
+
 		this._appendMonth(newYear, newMonth, newDay, isprev);
 
 		this._saveCurrentData(newYear, newMonth, newDay);
@@ -358,10 +363,10 @@ var prototype = {
 					   ? 'datepicker__day-list_next'
 					   : 'datepicker__day-list_prev'  );		
 
-		var $curr = $('.' + _curr);
+		var $curr = this.$panel.find('.' + _curr);
 
 		setTimeout(function() {
-			$('.' + _class1).removeClass(_class1).addClass(_curr);
+			that.$panel.find('.' + _class1).removeClass(_class1).addClass(_curr);
 			$curr.addClass(_class2).removeClass(_curr);
 		}, 0);
 	},
@@ -430,7 +435,7 @@ var prototype = {
 		if ( $day.hasClass(grayCls) || $day.hasClass(activeCls) )
 			return;
 
-		$('.datepicker__day-item').removeClass(activeCls);
+		this.$panel.find('.datepicker__day-item').removeClass(activeCls);
 		$day.addClass(activeCls);
 
 		this._saveCurrentData(curr.year, curr.month, parseInt($day.text()));
@@ -440,15 +445,11 @@ var prototype = {
 		var curr = this._getCurrentData();
 
 		this.close();
-		this.config.confirmCbk && this.config.confirmCbk(curr); 
+		this.config.confirmCbk && this.config.confirmCbk(curr);
 	},
 
 	open: function(el) {
 		var that = this;
-
-		that.$el = (  el
-					? el
-					: null  );		
 
 		that.$picker.removeClass('ui-d-n');
 		setTimeout(function() {
@@ -473,7 +474,7 @@ module.exports = {
 
 },{"./dateparse":3,"./datepicker_tpl":5,"./util":6,"fastclick":7}],5:[function(require,module,exports){
 var tpl = [
-	'<div class="datepicker ui-d-n">',
+	'<div id="{uuid}" class="datepicker ui-d-n">',
 	'	<div class="datepicker__mask"></div>',
 	'	<div class="datepicker__main">',
 	'		<div class="datepicker__header">',
@@ -564,6 +565,19 @@ var util = {
 	    }
 
 	    return false;
+	},
+	
+	generateUUID: function() {
+	    var d = new Date().getTime();
+	    if(window.performance && typeof window.performance.now === "function"){
+	        d += performance.now(); //use high-precision timer if available
+	    }
+	    var uuid = 'xxxxxxxx-xxxx'.replace(/[xy]/g, function(c) {
+	        var r = (d + Math.random()*16)%16 | 0;
+	        d = Math.floor(d/16);
+	        return (c=='x' ? r : (r&0x3|0x8)).toString(16);
+	    });
+	    return uuid;
 	}
 };
 
