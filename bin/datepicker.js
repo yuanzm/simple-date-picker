@@ -85,10 +85,10 @@ DateParse.prototype = {
 	 * @return {Object}       : 包含下个月`年`和`月`信息的对象  
 	 */	
 	 getNextMonth: function(year, month) {
-		var nextMonth = (  month + 1 === 12
-						 ? 0
+		var nextMonth = (  month + 1 >= 12
+						 ? 1
 						 : month + 1  );
-			nextYear = (  month + 1 === 12
+			nextYear = (  month + 1 >= 12
 						? year + 1
 						: year  );
 
